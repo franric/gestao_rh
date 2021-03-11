@@ -4,11 +4,11 @@
 
     <form method="post">
         {% csrf_token %}
-        <h1 class="">Voce esta certo que quer deletar {{ obj }}</h1>
+        <h1 class="">Voce esta certo que quer deletar o departamento {{ obj.nome }}</h1>
         {{ form }}
 
         <button class="btn btn-success">Confirmar</button>
-        <a href="{% url 'list_funcionarios' %}" class="btn btn-primary">Voltar</a>
+        <a href="{% url 'list_departamentos' %}" class="btn btn-primary">Voltar</a>
     </form>
 
 {% endblock %}

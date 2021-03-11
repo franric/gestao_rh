@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import DepartamentosList, DepartamentosEdit, DepartamentosNovo, DepartamentosDelete
+from .views import DepartamentosList, DepartamentoEdit, DepartamentoCreate, DepartamentoDelete
 
 
 urlpatterns = [
     path('', DepartamentosList.as_view(), name='list_departamentos'),
-    path('edit/<int:pk>', DepartamentosEdit.as_view(), name='update_departamento'),
-    path('novo/', DepartamentosNovo.as_view(), name='create_departamento'),
-    path('delete/<int:pk>', DepartamentosDelete.as_view(), name='delete_departamento'),
+    path('edit/<int:pk>', DepartamentoEdit.as_view(), name='update_departamento'),
+    path('novo/', DepartamentoCreate.as_view(), name='create_departamento'),
+    path('delete/<int:pk>', DepartamentoDelete.as_view(), name='delete_departamento'),
 ]

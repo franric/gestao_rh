@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from .models import Departamento
 
@@ -11,15 +12,22 @@ class DepartamentosList(ListView):
         return Departamento.objects.filter(empresa=empresa_logada)
 
 
-class DepartamentosEdit(UpdateView):
+class DepartamentoEdit(UpdateView):
     model = Departamento
     fields = ['nome']
 
 
-class DepartamentosNovo(CreateView):
+class DepartamentoCreate(CreateView):
     model = Departamento
     fields = ['nome']
 
+    def form_valid(self, form):
+        departamento = form.save(commit=False)
+        departamento.empresa = self.request.user.funcionario.empresa
+        departamento.save()
+        return super(DepartamentoCreate, self).form_valid(form)
 
-class DepartamentosDelete(DeleteView):
+
+class DepartamentoDelete(DeleteView):
     model = Departamento
+    success_url = reverse_lazy('list_departamentos')
