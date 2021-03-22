@@ -5,8 +5,7 @@
     <h1 class="">Banco de Horas</h1>
 
     {% for hora_extra in object_list %}
-        {{ hora_extra }}
-
+        <a href="{% url 'update_hora_extra' hora_extra.id %}" class="">{{ hora_extra }}</a>
         <br>
     {% endfor %}
 
