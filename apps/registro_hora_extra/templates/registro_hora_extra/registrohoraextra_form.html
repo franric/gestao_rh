@@ -9,8 +9,10 @@
         {{ form|bootstrap }}
 
         <button type="submit" class="btn btn-main">Salvar</button>
-        <a href="{% url 'list_hora_extra' %}" class="btn btn-primary">Voltar</a>
 
+        {% if object %}
+            <a href="{% url 'list_hora_extra' %}" class="btn btn-primary">Voltar</a>
+        {% endif %}
     </form>
 
 {% endblock %}
