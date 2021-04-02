@@ -25,7 +25,7 @@ SECRET_KEY = 'xnjj_0)4bs!9(7($qu%xc^lg&6!mh-7!&7s%rx*r=ndy+kjw3f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.141.184.30', 'drconsultoriajuridica.com']
+ALLOWED_HOSTS = ['3.141.184.30', 'drconsultoriajuridica.com', 'localhost']
 
 
 # Application definition
@@ -128,7 +128,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 MEDIA_URL = '/media/'
 
